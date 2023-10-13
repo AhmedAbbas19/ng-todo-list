@@ -30,6 +30,14 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "src/assets/scss/main-ltr.scss",
+                "inject": false
+              },
+              {
+                "input": "src/assets/scss/main-rtl.scss",
+                "inject": false
+              },
               "src/styles.scss"
             ],
             "scripts": []

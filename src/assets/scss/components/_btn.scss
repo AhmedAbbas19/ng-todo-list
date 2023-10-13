@@ -39,6 +39,7 @@
 
     &--border-primary {
         border: 3px solid $primary-100;
+        color: $primary-100;
 
         &:hover {
             border-color: $primary-200;

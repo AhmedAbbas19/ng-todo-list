@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
+import { initializeDirectionFactory } from './core/utils/init-direction.factory';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,13 @@ import { SharedModule } from './shared/shared.module';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeDirectionFactory,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
