@@ -1,0 +1,31 @@
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin center-content($type: both) {
+    display: flex;
+    flex-direction: row;
+    align-items: if($type == both or $type == vertically, center, null);
+    justify-content: if($type == both or $type == horizontally, center, null);
+}
+
+@mixin size($width, $height: $width) {
+    min-width: $width;
+    min-height: $height;
+}
+
+@mixin gap($gap-amount, $axis: horizontally) {
+    display: flex;
+    flex-direction: if($axis == horizontally, row, column);
+    gap: $gap-amount;
+}

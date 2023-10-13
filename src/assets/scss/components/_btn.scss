@@ -1,0 +1,47 @@
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    transition: $transition-base;
+    color: $primary-100;
+
+    &--sm {
+        @include size(30px);
+    }
+
+    &--md {
+        @include size(84px);
+        font-size: 1.5rem;
+    }
+
+    &--circle {
+        border-radius: 50%;
+    }
+
+    &--primary {
+        background-color: $primary-100;
+        color: $primary-200;
+
+        &:hover {
+            background-color: $primary-200;
+            color: $monochrome-100;
+        }
+    }
+
+    &--border-gray {
+        border: 3px solid $monochrome-300;
+        color: $monochrome-300;
+
+        &:hover {
+            border-color: $primary-100;
+            color: $primary-100;
+        }
+    }
+
+    &--border-primary {
+        border: 3px solid $primary-100;
+
+        &:hover {
+            border-color: $primary-200;
+        }
+    }
+}

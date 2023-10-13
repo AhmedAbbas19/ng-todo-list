@@ -1,0 +1,21 @@
+.todo-list {
+    @include gap(32px, vertically);
+
+    &__item {
+        @include center-content(vertically);
+        justify-content: space-between;
+    }
+
+    &__txt {
+        margin-#{$end-direction}: 20px;
+        &--active {
+            color: $monochrome-300;
+        }
+    }
+
+    &__check-btn {
+        &--active {
+            @extend .btn--border-primary;
+        }
+    }
+}

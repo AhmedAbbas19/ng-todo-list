@@ -1,0 +1,6 @@
+<li class="todo-list__item">
+    <p class="todo-list__txt" [ngClass]="{'todo-list__txt--active': todo.done}">{{todo.text}}</p>
+    <button class="todo-list__check-btn btn btn--sm btn--circle btn--border-gray" [ngClass]="{'todo-list__check-btn--active': todo.done}">
+        <i *ngIf="todo.done" class="fas fa-check"></i>
+    </button>
+</li>

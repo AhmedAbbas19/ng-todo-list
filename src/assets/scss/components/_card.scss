@@ -1,0 +1,19 @@
+.card {
+    position: relative;
+    background-color: $monochrome-100;
+    box-shadow: 1px 1px 6px 0px $monochrome-300;
+    padding: 50px 40px 100px;
+    margin: 32px 0 100px;
+    width: 360px;
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+    }
+
+    &__add-btn {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translate(-42px, 42px);
+    }
+}
