@@ -7,3 +7,8 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+.highlighted {
+  background-color: $primary-500;
+  color: $monochrome-100;
+}

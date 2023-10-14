@@ -10,10 +10,24 @@
         width: 100%;
     }
 
+    &__search-btn {
+        @include btn-placement(84px, 40px, left);
+        @include media-breakpoint-down(sm) {
+            @include btn-placement(64px, 40px, left);
+        }
+    }
+
     &__add-btn {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translate(-42px, 42px);
+        @include btn-placement(84px);
+        @include media-breakpoint-down(sm) {
+            @include btn-placement(64px);
+        }
+    }
+
+    &__edit-btn {
+        @include btn-placement(84px, -40px, right);
+        @include media-breakpoint-down(sm) {
+            @include btn-placement(64px, -40px, right);
+        }
     }
 }

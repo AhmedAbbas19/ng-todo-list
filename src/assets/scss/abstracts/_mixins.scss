@@ -29,3 +29,12 @@
     flex-direction: if($axis == horizontally, row, column);
     gap: $gap-amount;
 }
+
+@mixin btn-placement($btn-size, $translate-amount: - calc($btn-size / 2), $placement: center) {
+    position: absolute;
+    bottom: 0;
+    left: if($placement == left, 0, null);
+    left: if($placement == center, 50%, null);
+    right: if($placement == right, 0, null);
+    transform: translate($translate-amount, calc($btn-size / 2));
+}

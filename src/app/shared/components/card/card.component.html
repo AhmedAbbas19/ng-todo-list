@@ -1,6 +1,12 @@
 <div class="card">
     <ng-content></ng-content>
-    <button class="card__add-btn btn btn--md btn--primary btn--circle">
+    <button class="card__search-btn btn btn--md btn--primary btn--circle" (click)="searchBtnClicked.emit()">
+        <i class="fas fa-search"></i>
+    </button>
+    <button class="card__add-btn btn btn--md btn--primary btn--circle" (click)="addBtnClicked.emit()">
         <i class="fas fa-plus"></i>
+    </button>
+    <button class="card__edit-btn btn btn--md btn--primary btn--circle" (click)="editBtnClicked.emit()">
+        <i class="fas fa-edit"></i>
     </button>
 </div>

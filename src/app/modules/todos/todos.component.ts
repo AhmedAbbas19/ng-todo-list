@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TodosStoreService } from './todos.store.service';
+import { Todo } from './todos.models';
 
 @Component({
     selector: 'app-todos',
@@ -6,46 +8,55 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
+    inSearchMode = false;
+    inAddMode = false;
+    inEditMode = false;
 
-    todos = [
-        {
-            id: '1',
-            text: 'Buy new sweatshirt',
-            done: true
-        },
-        {
-            id: '2',
-            text: 'Read an article',
-            done: true
-        },
-        {
-            id: '3',
-            text: 'Try not to fall asleep',
-            done: false
-        },
-        {
-            id: '4',
-            text: 'Watch "Titanic" movie',
-            done: false
-        },
-        {
-            id: '5',
-            text: 'Walk the dog',
-            done: false
-        },
-        {
-            id: '6',
-            text: 'Buy some milk',
-            done: false
-        },
-        {
-            id: '7',
-            text: 'Send mail to Elon Musk',
-            done: false
+    updatingTodo: Todo | null;
+    searchKey = '';
+
+    constructor(public todosStore: TodosStoreService) { }
+    
+    ngOnInit(): void { 
+        this.todosStore.getTodos().subscribe();
+    }
+
+    onAddTodo(value: string) {
+        if (value) {
+            const newTodo: Todo = { todo: value, completed: false}
+            this.todosStore.addTodo(newTodo).subscribe();
         }
-    ]
+    }
 
-    constructor() { }
+    updateTodo(todo: Todo) {
+        if (todo.todo) {
+            this.updatingTodo = null;
+            this.todosStore.updateTodo(todo).subscribe();
+        }
+    }
 
-    ngOnInit(): void { }
+    onEditTodo(todo: Todo) {
+        this.updatingTodo = {...todo};
+        this.inAddMode = false;
+        this.inSearchMode = false;
+        this.searchKey = '';
+    }
+
+    onSearchBtnClick() {
+        this.inSearchMode = true;
+        this.inAddMode = false;
+        this.updatingTodo = null;
+    }
+
+    onAddBtnClick() {
+        this.inAddMode = true;
+        this.inSearchMode = false;
+        this.updatingTodo = null;
+        this.searchKey = '';
+    }
+
+    onEditBtnClick() {
+        this.inEditMode = !this.inEditMode;
+        this.updatingTodo = null;
+    }
 }

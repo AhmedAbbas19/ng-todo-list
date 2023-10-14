@@ -4,6 +4,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TodosComponent } from './todos.component';
 import { RouterModule, Routes } from '@angular/router';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { CoreModule } from 'src/app/core/core.module';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
     {
@@ -14,7 +16,7 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [TodosComponent, TodoItemComponent],
-    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule ],
+    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule ],
     exports: [],
     providers: [],
 })

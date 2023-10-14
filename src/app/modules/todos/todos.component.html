@@ -1,6 +1,25 @@
-<app-card>
+<app-card (searchBtnClicked)="onSearchBtnClick()" (addBtnClicked)="onAddBtnClick()" (editBtnClicked)="onEditBtnClick()">
+    
     <app-date></app-date>
-    <ul class="todo-list">
-        <app-todo-item *ngFor="let todo of todos" [todo]="todo"></app-todo-item>
-    </ul>
+
+    <div class="form-group" *ngIf="inSearchMode">
+        <input class="form-group__input" type="text" name="search" placeholder="Search" [(ngModel)]="searchKey"/>
+        <i class="form-group__postfix fas fa-search"></i>
+    </div>
+
+    <app-loading-spinner *ngIf="todosStore.isLoading$ | async; else notLoading"></app-loading-spinner>
+
+    <ng-template #notLoading>
+        <div class="form-group" *ngIf="inAddMode">
+            <input #todo class="form-group__input" type="text" id="todo_tb" name="todo" placeholder="What's in your mind" ngModel (keyup.enter)="onAddTodo(todo.value)"/>
+            <i class="form-group__postfix fas fa-add" (click)="onAddTodo(todo.value)"></i>
+        </div>
+        <div class="form-group" *ngIf="inEditMode && updatingTodo">
+            <input #todo class="form-group__input" type="text" id="todo_tb" name="updateTodo" [(ngModel)]="updatingTodo.todo" (keyup.enter)="updateTodo(updatingTodo)"/>
+            <i class="form-group__postfix fas fa-edit" (click)="updateTodo(updatingTodo)"></i>
+        </div>
+        <ul class="todo-list" *ngIf="(todosStore.todos$ | async) as todos">
+            <app-todo-item *ngFor="let todo of todos | listFilter: 'todo': searchKey" [todo]="todo" [inEditMode]="inEditMode" [searchKey]="searchKey" (editBtnClicked)="onEditTodo(todo)"></app-todo-item>
+        </ul>
+    </ng-template>
 </app-card>
