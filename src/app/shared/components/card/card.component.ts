@@ -1,15 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-card',
     templateUrl: './card.component.html'
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
     @Output() searchBtnClicked = new EventEmitter<void>();
     @Output() addBtnClicked = new EventEmitter<void>();
     @Output() editBtnClicked = new EventEmitter<void>();
-
-    constructor() { }
-
-    ngOnInit(): void { }
 }

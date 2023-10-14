@@ -24,6 +24,6 @@ export class TodoItemComponent implements OnInit {
     }
 
     onDeleteClick() {
-        this.todosStore.deleteTodo(this.todo.id || 0).subscribe();
+        this.todosStore.deleteTodo(this.todo.id!).subscribe();
     }
 }

@@ -6,10 +6,13 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
 import { ListFilterPipe } from './pipes/filter-list.pipe';
 import { HighlightPipe } from './pipes/highlight.pipe';
 
+const components = [
+    CardComponent, DateComponent, LoadingSpinnerComponent, ListFilterPipe, HighlightPipe
+];
+
 @NgModule({
-    declarations: [CardComponent, DateComponent, LoadingSpinnerComponent, ListFilterPipe, HighlightPipe],
+    declarations: [...components],
     imports: [ CommonModule ],
-    exports: [CardComponent, DateComponent, LoadingSpinnerComponent, ListFilterPipe, HighlightPipe],
-    providers: [],
+    exports: [...components],
 })
 export class SharedModule {}

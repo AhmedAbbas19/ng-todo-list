@@ -16,8 +16,6 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [TodosComponent, TodoItemComponent],
-    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule ],
-    exports: [],
-    providers: [],
+    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule ]
 })
 export class TodosModule {}
