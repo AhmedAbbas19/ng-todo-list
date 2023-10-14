@@ -1,0 +1,3 @@
+const ENDPOINTS = {
+    todos: 'todos'
+}

@@ -1,5 +1,5 @@
-import { DirectionService } from './core/services/direction.service';
 import { Component, OnInit } from '@angular/core';
+import { TranslationService } from './core/services/translate.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private directionService: DirectionService){}
+  constructor(private translate: TranslationService){}
 
   ngOnInit(): void {
-    this.directionService.init();
+    this.translate.init();
   }
 }

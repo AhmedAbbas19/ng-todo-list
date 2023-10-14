@@ -4,7 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { initializeDirectionFactory } from './core/utils/init-direction.factory';
+import { TranslateModule } from '@ngx-translate/core';
+import { TRANSLATE_CONFIG, initializeDirectionFactory } from './core/constants/factories.constants';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { initializeDirectionFactory } from './core/utils/init-direction.factory'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    TranslateModule.forRoot(TRANSLATE_CONFIG),
     CoreModule
   ],
   providers: [

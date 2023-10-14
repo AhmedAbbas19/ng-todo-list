@@ -1,8 +1,8 @@
 <header class="header">
     <div class="header__container container">
         <img class="header__logo" src="assets/images/svg/logo.svg" width="75" height="75" alt="logo">
-        <span class="header__lang cursor-pointer" (click)="directionService.switchDirection()">
-            {{directionService.getDirection() === 'ltr' ? 'العربيه' : 'English'}}
+        <span class="header__lang cursor-pointer" (click)="translate.currentLang === 'ar' ? translate.use('en') : translate.use('ar')">
+            {{ 'header.otherLanguage' | translate }}
         </span>
     </div>
 </header>

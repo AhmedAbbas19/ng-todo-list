@@ -1,4 +1,4 @@
-import { DirectionService } from './../../services/direction.service';
+import { TranslationService } from './../../services/translate.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
     templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-    constructor(public directionService: DirectionService) { }
+    constructor(public translate: TranslationService) { }
 }
