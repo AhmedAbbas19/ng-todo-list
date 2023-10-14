@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
     {
@@ -16,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
     declarations: [TodosComponent, TodoItemComponent],
-    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule ]
+    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule, TranslateModule ]
 })
 export class TodosModule {}

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Todo, TodoResponse } from './todos.models';
 import { Observable } from 'rxjs';
-import { handleNotFoundIds } from 'src/app/core/utils/not-found-ids.util';
+import { handleNotFoundIds } from 'src/app/core/utils/utils';
 
 @Injectable({
     providedIn: 'root'
@@ -15,8 +15,8 @@ export class TodosService {
         return this.httpService.get('todos?limit=5'); // limit the response to 5 todos as we don't care about the whole data for this project
     }
 
-    AddTodo(todo: Todo): Observable<Todo> {
-        return this.httpService.post('todos/add', {...todo, userId: 26}); // 26 is a random userId as we don't care about the user for this project
+    addTodo(todo: Todo): Observable<Todo> {
+        return this.httpService.post('todos/add', {...todo, userId: 1}); // 1 is a random userId as we don't care about the user for this project
     }
 
     updateTodo(todo: Todo) {

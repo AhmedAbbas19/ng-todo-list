@@ -3,7 +3,7 @@
     <app-date></app-date>
 
     <div class="form-group" *ngIf="inSearchMode">
-        <input class="form-group__input" type="text" name="search" placeholder="Search" [(ngModel)]="searchKey"/>
+        <input class="form-group__input" type="text" name="search" [placeholder]="'todos.search.placeholder' | translate" [(ngModel)]="searchKey"/>
         <i class="form-group__postfix fas fa-search"></i>
     </div>
 
@@ -11,7 +11,7 @@
 
     <ng-template #notLoading>
         <div class="form-group" *ngIf="inAddMode">
-            <input #todo class="form-group__input" type="text" name="todo" placeholder="What's in your mind" ngModel (keyup.enter)="onAddTodo(todo.value)"/>
+            <input #todo class="form-group__input" type="text" name="todo" [placeholder]="'todos.addtodo.placeholder' | translate" ngModel (keyup.enter)="onAddTodo(todo.value)"/>
             <i class="form-group__postfix fas fa-add" (click)="onAddTodo(todo.value)"></i>
         </div>
         <div class="form-group" *ngIf="inEditMode && updatingTodo">
@@ -20,6 +20,7 @@
         </div>
         <ul class="todo-list" *ngIf="(todosStore.todos$ | async) as todos">
             <app-todo-item *ngFor="let todo of todos | listFilter: 'todo': searchKey" [todo]="todo" [inEditMode]="inEditMode" [searchKey]="searchKey" (editBtnClicked)="onEditTodo(todo)"></app-todo-item>
+            <p *ngIf="!(todos | listFilter: 'todo': searchKey).length" class="text-center">{{ 'todos.salutation' | translate }}</p>
         </ul>
     </ng-template>
 </app-card>

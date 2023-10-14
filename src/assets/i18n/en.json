@@ -2,5 +2,18 @@
     "title": "Todo List",
     "header": {
         "otherLanguage": "العربيه"
+    },
+    "todos": {
+        "salutation": "What a lovely day!",
+        "search": {
+            "placeholder": "Search"
+        },
+        "addtodo": {
+            "placeholder": "What's on your mind"
+        }
+    },
+    "date": {
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "days": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     }
 }

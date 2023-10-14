@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Todo, TodoResponse } from './todos.models';
 import { BehaviorSubject, finalize, map, tap } from 'rxjs';
 import { TodosService } from './todos.service';
+import { generateId } from 'src/app/core/utils/utils';
 
 @Injectable({
     providedIn: 'root'
@@ -39,10 +40,10 @@ export class TodosStoreService {
 
     addTodo(todo: Todo) {
         this.setIsLoading(true);
-        return this.todosService.AddTodo(todo).pipe(
+        return this.todosService.addTodo(todo).pipe(
             tap((res) => {
                 const todos = this.todosSubject.getValue();
-                this.setTodos([...todos, res])
+                this.setTodos([...todos, {...res, id: generateId()}])
             }),
             finalize(() => this.setIsLoading(false))
         );

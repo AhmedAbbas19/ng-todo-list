@@ -11,9 +11,9 @@
     }
 
     &__search-btn {
-        @include btn-placement(84px, 40px, left);
+        @include btn-placement(84px, 40px, start);
         @include media-breakpoint-down(sm) {
-            @include btn-placement(64px, 40px, left);
+            @include btn-placement(64px, 40px, start);
         }
     }
 
@@ -25,9 +25,9 @@
     }
 
     &__edit-btn {
-        @include btn-placement(84px, -40px, right);
+        @include btn-placement(84px, -40px, end);
         @include media-breakpoint-down(sm) {
-            @include btn-placement(64px, -40px, right);
+            @include btn-placement(64px, -40px, end);
         }
     }
 }

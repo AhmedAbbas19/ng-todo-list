@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-date',
     templateUrl: './date.component.html'
 })
-export class DateComponent implements OnInit {
-    constructor() { }
-
-    ngOnInit(): void { }
+export class DateComponent {
+    date = new Date();
+    day = this.date.getDate();
+    today = this.date.getDay();
+    month = this.date.getMonth();
+    year = this.date.getFullYear();
 }
