@@ -4,6 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Preview
 
+## Live Demo
+https://ahmedabbas19.github.io/ng-todo-list/
+
 ## RTL
 <img width="1501" alt="Screenshot 2023-10-15 at 2 04 06 AM" src="https://github.com/AhmedAbbas19/ng-todo-list/assets/29629099/b0d57cfc-af40-42e8-a16e-8cb07aab3ef8">
 
