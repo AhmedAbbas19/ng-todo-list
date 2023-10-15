@@ -10,8 +10,8 @@ export class DirectionService {
   constructor(private translate: TranslateService) {}
 
   initializeDirection() {
-    this.translate.onLangChange.subscribe(({lang}: {lang: 'en' | 'ar'}) => {
-      this.directionChanged(LANGS_DIRECTION[lang]);
+    this.translate.onLangChange.subscribe(({lang}) => {
+      this.directionChanged(LANGS_DIRECTION[lang as keyof typeof LANGS_DIRECTION]);
     })
   }
 

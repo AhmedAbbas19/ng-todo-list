@@ -15,7 +15,6 @@ export class TranslationService extends TranslateService {
 
   init() {
     this.addLangs(LANGUAGES);
-    // this.setDefaultLang(DEFAULT_LANG);
     this.use(this.getStoredLanguage());
   }
 
@@ -25,8 +24,8 @@ export class TranslationService extends TranslateService {
   }
 
   private getStoredLanguage(): string {
-    const storedLanguage = localStorage.getItem(STORAGE_LANG_KEY) || this.defaultLang;
-    return this.getLangs().some(l => storedLanguage === l) ? storedLanguage : this.defaultLang;
+    const storedLanguage = localStorage.getItem(STORAGE_LANG_KEY) || DEFAULT_LANG;
+    return this.getLangs().some(l => storedLanguage === l) ? storedLanguage : DEFAULT_LANG;
   }    
 
 }
