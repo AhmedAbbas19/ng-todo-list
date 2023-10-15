@@ -4,9 +4,9 @@ import { TranslateLoader, TranslateModuleConfig } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { DirectionService } from "../services/direction.service";
 
-export const initializeDirectionFactory = () => {
+export const InitDirectionFactory = () => {
     const directionService = inject(DirectionService);
-    return () => directionService.initializeDirection();
+    return () => directionService.initDirection();
 }
 
 

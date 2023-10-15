@@ -1,5 +1,4 @@
-import { TodosService } from './../todos.service';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from '../todos.models';
 import { TodosStoreService } from '../todos.store.service';
 
@@ -7,7 +6,7 @@ import { TodosStoreService } from '../todos.store.service';
     selector: 'app-todo-item',
     templateUrl: './todo-item.component.html'
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent {
     @Input() todo: Todo;
     @Input() searchKey: string;
     @Input() inEditMode: boolean;
@@ -15,8 +14,6 @@ export class TodoItemComponent implements OnInit {
 
 
     constructor(private todosStore: TodosStoreService) { }
-
-    ngOnInit(): void { }
 
     onCompleteClick() {
         const todo: Todo = {...this.todo, completed: !this.todo.completed};

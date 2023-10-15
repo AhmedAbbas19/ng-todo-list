@@ -4,9 +4,9 @@
         "otherLanguage": "English"
     },
     "todos": {
-        "salutation": "يا له من يوم رائع!",
+        "noData": "لا شيء لإظهاره",
         "search": {
-            "placeholder": "إبحث"
+            "placeholder": "بحث"
         },
         "addtodo": {
             "placeholder": "ما الذي يدور في ذهنك"

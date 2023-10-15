@@ -1,10 +1,10 @@
 {
     "title": "Todo List",
     "header": {
-        "otherLanguage": "العربيه"
+        "otherLanguage": "العربية"
     },
     "todos": {
-        "salutation": "What a lovely day!",
+        "noData": "Nothing to show.",
         "search": {
             "placeholder": "Search"
         },

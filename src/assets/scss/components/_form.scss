@@ -22,5 +22,20 @@
         @include size(35px, 45px);
         @include center-content();
         cursor: pointer;
+        @extend .btn, .btn--primary;
+        border-top-#{$end-direction}-radius: 6px;
+        border-bottom-#{$end-direction}-radius: 6px;
+    }
+
+    &--invalid {
+        .form-group__input{
+            border-color: $primary-600;
+            &:focus {
+                outline-color: $primary-600;
+            }
+        }
+        .form-group__postfix{
+            background-color: $primary-600;
+        }
     }
 }

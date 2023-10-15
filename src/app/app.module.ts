@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { TRANSLATE_CONFIG, initializeDirectionFactory } from './core/constants/factories.constants';
+import { TRANSLATE_CONFIG, InitDirectionFactory } from './core/constants/factories.constants';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { TRANSLATE_CONFIG, initializeDirectionFactory } from './core/constants/f
   providers: [
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeDirectionFactory,
+      useFactory: InitDirectionFactory,
       multi: true,
     }
   ],

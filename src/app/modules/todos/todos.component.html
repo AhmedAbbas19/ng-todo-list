@@ -2,25 +2,29 @@
     
     <app-date></app-date>
 
-    <div class="form-group" *ngIf="inSearchMode">
-        <input class="form-group__input" type="text" name="search" [placeholder]="'todos.search.placeholder' | translate" [(ngModel)]="searchKey"/>
+    <div class="form-group" *ngIf="inSearchMode" [ngClass]="{'form-group--invalid': searchInput.errors}">
+        <input #searchInput="ngModel" class="form-group__input" type="text" name="search" [placeholder]="'todos.search.placeholder' | translate" [(ngModel)]="searchKey"
+             maxlength="80" [pattern]="safeTextRegex"/>
         <i class="form-group__postfix fas fa-search"></i>
     </div>
 
     <app-loading-spinner *ngIf="todosStore.isLoading$ | async; else notLoading"></app-loading-spinner>
 
     <ng-template #notLoading>
-        <div class="form-group" *ngIf="inAddMode">
-            <input #todo class="form-group__input" type="text" name="todo" [placeholder]="'todos.addtodo.placeholder' | translate" ngModel (keyup.enter)="onAddTodo(todo.value)"/>
-            <i class="form-group__postfix fas fa-add" (click)="onAddTodo(todo.value)"></i>
+        <div class="form-group" *ngIf="inAddMode" [ngClass]="{'form-group--invalid': todoInput.touched && todoInput.errors}">
+            <input #todoInput="ngModel" class="form-group__input" type="text" name="todo" [placeholder]="'todos.addtodo.placeholder' | translate" 
+                ngModel maxlength="80" required [pattern]="safeTextRegex" (keyup.enter)="!todoInput.errors && onAddTodo(todoInput.value)"/>
+            <i class="form-group__postfix fas fa-add" (click)="!todoInput.errors && onAddTodo(todoInput.value)"></i>
         </div>
-        <div class="form-group" *ngIf="inEditMode && updatingTodo">
-            <input class="form-group__input" type="text" name="updateTodo" [(ngModel)]="updatingTodo.todo" (keyup.enter)="updateTodo(updatingTodo)"/>
-            <i class="form-group__postfix fas fa-edit" (click)="updateTodo(updatingTodo)"></i>
+        <div class="form-group" *ngIf="inEditMode && updatingTodo" [ngClass]="{'form-group--invalid': editInput.touched && editInput.errors}">
+            <input #editInput="ngModel" class="form-group__input" type="text" name="updateTodo" [(ngModel)]="updatingTodo.todo" 
+                maxlength="80" required [pattern]="safeTextRegex" (keyup.enter)="!editInput.errors && updateTodo(updatingTodo)"/>
+            <i class="form-group__postfix fas fa-edit" (click)="!editInput.errors && updateTodo(updatingTodo)"></i>
         </div>
         <ul class="todo-list" *ngIf="(todosStore.todos$ | async) as todos">
-            <app-todo-item *ngFor="let todo of todos | listFilter: 'todo': searchKey" [todo]="todo" [inEditMode]="inEditMode" [searchKey]="searchKey" (editBtnClicked)="onEditTodo(todo)"></app-todo-item>
-            <p *ngIf="!(todos | listFilter: 'todo': searchKey).length" class="text-center">{{ 'todos.salutation' | translate }}</p>
+            <app-todo-item *ngFor="let todo of todos | listFilter: 'todo': searchKey" [todo]="todo" [inEditMode]="inEditMode" [searchKey]="searchKey" 
+                (editBtnClicked)="onEditTodo(todo)"></app-todo-item>
+            <p *ngIf="!(todos | listFilter: 'todo': searchKey).length" class="text-center">{{ 'todos.noData' | translate }}</p>
         </ul>
     </ng-template>
 </app-card>

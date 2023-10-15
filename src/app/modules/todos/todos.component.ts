@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { TodosStoreService } from './todos.store.service';
 import { Todo } from './todos.models';
 import { scrollTop } from 'src/app/core/utils/utils';
+import { SAFE_TEXT_REGEX } from 'src/app/core/constants/regex.constants';
 
 @Component({
     selector: 'app-todos',
-    templateUrl: './todos.component.html',
-    styleUrls: ['./todos.component.scss']
+    templateUrl: './todos.component.html'
 })
 export class TodosComponent implements OnInit {
     inSearchMode = false;
@@ -15,6 +15,8 @@ export class TodosComponent implements OnInit {
 
     updatingTodo: Todo | null;
     searchKey = '';
+
+    safeTextRegex = SAFE_TEXT_REGEX;
 
     constructor(public todosStore: TodosStoreService) { }
     
