@@ -18,7 +18,7 @@
         </div>
         <div class="form-group" *ngIf="inEditMode && updatingTodo" [ngClass]="{'form-group--invalid': editInput.touched && editInput.errors}">
             <input #editInput="ngModel" class="form-group__input" type="text" name="updateTodo" [(ngModel)]="updatingTodo.todo" 
-                maxlength="80" required [pattern]="safeTextRegex" (keyup.enter)="!editInput.errors && updateTodo(updatingTodo)"/>
+            [placeholder]="'todos.addtodo.placeholder' | translate" maxlength="80" required [pattern]="safeTextRegex" (keyup.enter)="!editInput.errors && updateTodo(updatingTodo)"/>
             <i class="form-group__postfix fas fa-edit" (click)="!editInput.errors && updateTodo(updatingTodo)"></i>
         </div>
         <ul class="todo-list" *ngIf="(todosStore.todos$ | async) as todos">

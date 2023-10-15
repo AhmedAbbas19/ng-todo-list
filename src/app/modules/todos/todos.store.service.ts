@@ -17,59 +17,51 @@ export class TodosStoreService {
         return this.todosSubject;
     }
 
-    setTodos(todos: Todo[]) {
-        this.todosSubject.next(todos);
-    }
-
     get isLoading$() {
         return this.isLoadingSubject;
     }
 
-    setIsLoading(isLoading: boolean) {
-        this.isLoadingSubject.next(isLoading);
-    }
-
     getTodos() {
-        this.setIsLoading(true);
+        this.isLoadingSubject.next(true);
         return this.todosService.getTodos().pipe(
             map((res: TodoResponse) => res.todos),
-            tap((res) => this.setTodos(res)),
-            finalize(() => this.setIsLoading(false))
+            tap((res) => this.todosSubject.next(res)),
+            finalize(() => this.isLoadingSubject.next(false))
         );
     }
 
     addTodo(todo: Todo) {
-        this.setIsLoading(true);
+        this.isLoadingSubject.next(true);
         return this.todosService.addTodo(todo).pipe(
             tap((res) => {
                 const todos = this.todosSubject.getValue();
-                this.setTodos([...todos, {...res, id: generateId()}])
+                this.todosSubject.next([...todos, {...res, id: generateId()}])
             }),
-            finalize(() => this.setIsLoading(false))
+            finalize(() => this.isLoadingSubject.next(false))
         );
     }
 
     deleteTodo(todoId: number) {
-        this.setIsLoading(true);
+        this.isLoadingSubject.next(true);
         return this.todosService.deleteTodo(todoId).pipe(
             tap(() => {
                 const todos = this.todosSubject.getValue();
-                this.setTodos(todos.filter(todo => todo.id !== todoId));
+                this.todosSubject.next(todos.filter(todo => todo.id !== todoId));
             }),
-            finalize(() => this.setIsLoading(false))
+            finalize(() => this.isLoadingSubject.next(false))
         );
     }
 
     updateTodo(updatedTodo: Todo) {
-        this.setIsLoading(true);
+        this.isLoadingSubject.next(true);
         return this.todosService.updateTodo(updatedTodo).pipe(
             tap(() => {
                 const todos = this.todosSubject.getValue();
-                this.setTodos(todos.map(todo => {
+                this.todosSubject.next(todos.map(todo => {
                     return todo.id === updatedTodo.id ? updatedTodo : todo;
                 }));
             }),
-            finalize(() => this.setIsLoading(false))
+            finalize(() => this.isLoadingSubject.next(false))
         );
     }
 }
