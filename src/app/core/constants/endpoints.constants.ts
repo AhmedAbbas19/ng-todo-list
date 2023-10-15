@@ -1,3 +1,3 @@
-const ENDPOINTS = {
+export const ENDPOINTS = {
     todos: 'todos'
 }
