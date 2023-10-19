@@ -1,50 +1,48 @@
 @mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
-    $max: breakpoint-max($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
 
-    @if $max {
-        @media (max-width: $max) {
-            @content;
-        }
+  @if $max {
+    @media (max-width: $max) {
+      @content;
     }
-
-    @else {
-        @content;
-    }
+  } @else {
+    @content;
+  }
 }
 
 @mixin border-btn($border-color, $hover-color) {
-    border: 3px solid $border-color;
-    color: $border-color;
+  border: 3px solid $border-color;
+  color: $border-color;
 
-    &:hover {
-        border-color: $hover-color;
-        color: $hover-color;
-    }
+  &:hover {
+    border-color: $hover-color;
+    color: $hover-color;
+  }
 }
 
 @mixin center-content($type: both) {
-    display: flex;
-    flex-direction: row;
-    align-items: if($type ==both or $type ==vertically, center, null);
-    justify-content: if($type ==both or $type ==horizontally, center, null);
+  display: flex;
+  flex-direction: row;
+  align-items: if($type ==both or $type ==vertically, center, null);
+  justify-content: if($type ==both or $type ==horizontally, center, null);
 }
 
 @mixin size($width, $height: $width) {
-    min-width: $width;
-    min-height: $height;
+  min-width: $width;
+  min-height: $height;
 }
 
 @mixin gap($gap-amount, $axis: horizontally) {
-    display: flex;
-    flex-direction: if($axis ==horizontally, row, column);
-    gap: $gap-amount;
+  display: flex;
+  flex-direction: if($axis ==horizontally, row, column);
+  gap: $gap-amount;
 }
 
 @mixin btn-placement($btn-size, $translate-amount: - calc($btn-size / 2), $placement: center) {
-    position: absolute;
-    bottom: 0;
-    left: if($placement ==start, 0, null);
-    left: if($placement ==center, 50%, null);
-    right: if($placement ==end, 0, null);
-    transform: translate($translate-amount, calc($btn-size / 2));
+  position: absolute;
+  bottom: 0;
+  left: if($placement ==start, 0, null);
+  left: if($placement ==center, 50%, null);
+  right: if($placement ==end, 0, null);
+  transform: translate($translate-amount, calc($btn-size / 2));
 }

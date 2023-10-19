@@ -1,3 +1,3 @@
 export const ENDPOINTS = {
-    todos: 'todos'
-}
+  todos: 'todos'
+};

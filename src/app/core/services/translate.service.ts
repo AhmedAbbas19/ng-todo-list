@@ -7,7 +7,6 @@ import { DEFAULT_LANG, LANGUAGES, STORAGE_LANG_KEY } from '../constants/language
   providedIn: 'root'
 })
 export class TranslationService extends TranslateService {
-
   constructor(private translate: TranslateService) {
     const { store, currentLoader, compiler, parser, missingTranslationHandler, defaultLang } = translate;
     super(store, currentLoader, compiler, parser, missingTranslationHandler, true, false, false, defaultLang);
@@ -26,6 +25,5 @@ export class TranslationService extends TranslateService {
   private getStoredLanguage(): string {
     const storedLanguage = localStorage.getItem(STORAGE_LANG_KEY) || DEFAULT_LANG;
     return this.getLangs().some(l => storedLanguage === l) ? storedLanguage : DEFAULT_LANG;
-  }    
-
+  }
 }

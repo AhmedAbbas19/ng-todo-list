@@ -1,4 +1,4 @@
 @function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
-    $max: map-get($breakpoints, $name);
-    @return if($max and $max > 0, $max - 0.02, null);
+  $max: map-get($breakpoints, $name);
+  @return if($max and $max > 0, $max - 0.02, null);
 }

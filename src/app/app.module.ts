@@ -8,22 +8,15 @@ import { TranslateModule } from '@ngx-translate/core';
 import { TRANSLATE_CONFIG, InitDirectionFactory } from './core/constants/factories.constants';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    TranslateModule.forRoot(TRANSLATE_CONFIG),
-    CoreModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, TranslateModule.forRoot(TRANSLATE_CONFIG), CoreModule],
   providers: [
     {
       provide: APP_INITIALIZER,
       useFactory: InitDirectionFactory,
-      multi: true,
+      multi: true
     }
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

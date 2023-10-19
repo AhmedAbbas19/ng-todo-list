@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
-    {
-      path: '',
-      component: TodosComponent
-    }
-  ];
+  {
+    path: '',
+    component: TodosComponent
+  }
+];
 
 @NgModule({
-    declarations: [TodosComponent, TodoItemComponent],
-    imports: [ CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule, TranslateModule ]
+  declarations: [TodosComponent, TodoItemComponent],
+  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule, TranslateModule]
 })
 export class TodosModule {}

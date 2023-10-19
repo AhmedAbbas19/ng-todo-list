@@ -1,5 +1,5 @@
-import { catchError, of, throwError } from "rxjs";
-import { ENDPOINTS } from "../constants/endpoints.constants";
+import { catchError, of, throwError } from 'rxjs';
+import { ENDPOINTS } from '../constants/endpoints.constants';
 
 /**
  * Purpose for this function ✋
@@ -8,9 +8,8 @@ import { ENDPOINTS } from "../constants/endpoints.constants";
  * This function generates a new that I can use when POSTing a new resource
  */
 export const generateId = () => {
-    return new Date().getTime();
-}
-
+  return new Date().getTime();
+};
 
 /**
  * Purpose for this operator ✋
@@ -19,20 +18,19 @@ export const generateId = () => {
  * This operator for safely pass this error
  */
 export const handleNotFoundIds = () => {
-    return catchError(error => {
-        if (error.status === 404 && error.url.indexOf(ENDPOINTS.todos) > -1) {
-            return of({});
-        }
-        return throwError(() => error);
-    })
-}
-
+  return catchError(error => {
+    if (error.status === 404 && error.url.indexOf(ENDPOINTS.todos) > -1) {
+      return of({});
+    }
+    return throwError(() => error);
+  });
+};
 
 /**
  * Purpose for this operator ✋
  * Scroll to top of the page
  */
 export const scrollTop = () => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-}
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+};

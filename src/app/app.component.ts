@@ -6,7 +6,7 @@ import { TranslationService } from './core/services/translate.service';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  constructor(private translate: TranslationService){}
+  constructor(private translate: TranslationService) {}
 
   ngOnInit(): void {
     this.translate.init();

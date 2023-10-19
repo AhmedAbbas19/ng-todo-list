@@ -3,15 +3,17 @@ import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { LANGS_DIRECTION } from '../constants/languages.constants';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DirectionService {
-
-  constructor(@Inject(DOCUMENT) private document: Document, private translate: TranslateService) {}
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private translate: TranslateService
+  ) {}
 
   initDirection() {
-    this.translate.onLangChange.subscribe(({lang}) => {
+    this.translate.onLangChange.subscribe(({ lang }) => {
       this.directionChanged(LANGS_DIRECTION[lang as keyof typeof LANGS_DIRECTION]);
-    })
+    });
   }
 
   private directionChanged(dir: string): void {
@@ -37,5 +39,4 @@ export class DirectionService {
       headElement.appendChild(newLink);
     }
   }
-
 }

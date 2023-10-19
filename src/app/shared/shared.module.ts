@@ -7,13 +7,11 @@ import { ListFilterPipe } from './pipes/filter-list.pipe';
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { TranslateModule } from '@ngx-translate/core';
 
-const components = [
-    CardComponent, DateComponent, LoadingSpinnerComponent, ListFilterPipe, HighlightPipe
-];
+const components = [CardComponent, DateComponent, LoadingSpinnerComponent, ListFilterPipe, HighlightPipe];
 
 @NgModule({
-    declarations: [...components],
-    imports: [ CommonModule, TranslateModule ],
-    exports: [...components],
+  declarations: [...components],
+  imports: [CommonModule, TranslateModule],
+  exports: [...components]
 })
 export class SharedModule {}

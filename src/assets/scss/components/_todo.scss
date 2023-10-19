@@ -1,31 +1,31 @@
 .todo-list {
-    @include gap(32px, vertically);
+  @include gap(32px, vertically);
 
-    &__item {
-        @include center-content(vertically);
-        justify-content: space-between;
-        gap: 20px;
+  &__item {
+    @include center-content(vertically);
+    justify-content: space-between;
+    gap: 20px;
 
-        &--column {
-            flex-direction: column;
-            align-items: unset;
-        }
+    &--column {
+      flex-direction: column;
+      align-items: unset;
     }
+  }
 
-    &__txt {
-        &--active {
-            color: $monochrome-300;
-        }
+  &__txt {
+    &--active {
+      color: $monochrome-300;
     }
+  }
 
-    &__check-btn {
-        &--active {
-            @extend .btn--border-primary;
-        }
+  &__check-btn {
+    &--active {
+      @extend .btn--border-primary;
     }
+  }
 
-    &__edit-btns {
-        @include center-content(horizontally);
-        @include gap(10px, horizontally);
-    }
+  &__edit-btns {
+    @include center-content(horizontally);
+    @include gap(10px, horizontally);
+  }
 }

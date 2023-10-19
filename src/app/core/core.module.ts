@@ -7,8 +7,8 @@ import { TranslateModule } from '@ngx-translate/core';
 const components = [HeaderComponent];
 
 @NgModule({
-    declarations: [...components],
-    imports: [ CommonModule, HttpClientModule, TranslateModule ],
-    exports: [...components]
+  declarations: [...components],
+  imports: [CommonModule, HttpClientModule, TranslateModule],
+  exports: [...components]
 })
 export class CoreModule {}
