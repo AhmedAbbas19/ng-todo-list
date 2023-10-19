@@ -10,7 +10,7 @@
     "lint": "ng lint --fix",
     "lint:styles": "stylelint ./src/**/*.scss --fix",
     "lint:staged": "lint-staged",
-    "build:ci": "ng build --configuration=development",
+    "build:ci": "ng build --configuration=production",
     "test": "ng test"
   },
   "author": "Ahmed Abbas",

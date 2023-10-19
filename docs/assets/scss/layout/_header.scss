@@ -1,0 +1,17 @@
+.header {
+  background-color: $primary-200;
+  box-shadow: 0px 0px 8px 3px $monochrome-400;
+  &__container {
+    @include center-content(vertically);
+    justify-content: space-between;
+  }
+  &__lang {
+    font-family: $font-face-other;
+    color: $monochrome-100;
+    transition: $transition-base;
+
+    &:hover {
+      color: $primary-100;
+    }
+  }
+}

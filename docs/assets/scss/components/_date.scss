@@ -1,0 +1,19 @@
+.date {
+  @include center-content(vertically);
+
+  justify-content: space-between;
+  margin-bottom: 32px;
+
+  &__today {
+    @include center-content(vertically);
+  }
+
+  &__day {
+    font-size: 2.5rem;
+    margin-#{$end-direction}: 10px;
+  }
+
+  &__year {
+    color: $monochrome-400;
+  }
+}

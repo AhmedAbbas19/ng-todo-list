@@ -1,0 +1,47 @@
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  transition: $transition-base;
+  color: $primary-100;
+
+  &--sm {
+    @include size(30px);
+  }
+
+  &--md {
+    @include size(84px);
+    font-size: 1.5rem;
+    @include media-breakpoint-down(sm) {
+      @include size(64px);
+    }
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  &--primary {
+    background-color: $primary-100;
+    color: $monochrome-100;
+
+    &:hover {
+      background-color: $primary-200;
+    }
+  }
+
+  &--border-gray {
+    @include border-btn($monochrome-300, $primary-100);
+  }
+
+  &--border-primary {
+    @include border-btn($primary-100, $primary-200);
+  }
+
+  &--border-primary-600 {
+    @include border-btn($primary-600, $primary-200);
+  }
+
+  &--border-primary-400 {
+    @include border-btn($primary-400, $primary-200);
+  }
+}

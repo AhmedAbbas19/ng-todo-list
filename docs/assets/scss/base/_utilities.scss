@@ -1,0 +1,18 @@
+@each $name, $color in $color-map {
+  .text-#{$name} {
+    color: $color;
+  }
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.highlighted {
+  background-color: $primary-500;
+  color: $monochrome-100;
+}
+
+.text-center {
+  text-align: center;
+}
