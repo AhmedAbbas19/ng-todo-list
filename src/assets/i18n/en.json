@@ -10,7 +10,8 @@
         },
         "addtodo": {
             "placeholder": "What's on your mind"
-        }
+        },
+        "errorMessage": "Please enter a valid input."
     },
     "date": {
         "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
