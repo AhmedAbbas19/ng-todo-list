@@ -21,5 +21,6 @@ export const TRANSLATE_CONFIG: TranslateModuleConfig = {
     provide: TranslateLoader,
     useFactory: HttpLoaderFactory,
     deps: [HttpClient]
-  }
+  },
+  isolate: true
 };

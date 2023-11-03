@@ -3,6 +3,8 @@ import { TodosStoreService } from './todos.store.service';
 import { Todo } from './todos.models';
 import { scrollTop } from 'src/app/core/utils/utils';
 import { SAFE_TEXT_REGEX } from 'src/app/core/constants/regex.constants';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslationService } from 'src/app/core/services/translate.service';
 
 @Component({
   selector: 'app-todos',
@@ -18,9 +20,14 @@ export class TodosComponent implements OnInit {
 
   safeTextRegex = SAFE_TEXT_REGEX;
 
-  constructor(public todosStore: TodosStoreService) {}
+  constructor(
+    public todosStore: TodosStoreService,
+    private translateStore: TranslationService,
+    private translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
+    this.translateStore.lang$.subscribe(lang => this.translate.use(lang));
     this.todosStore.getTodos().subscribe();
   }
 
