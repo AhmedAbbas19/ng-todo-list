@@ -1,14 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslationService } from './core/services/translate.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit {
-  constructor(private translate: TranslationService) {}
-
-  ngOnInit(): void {
-    this.translate.init();
-  }
-}
+export class AppComponent {}

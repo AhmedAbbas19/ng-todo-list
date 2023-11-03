@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class HighlightPipe implements PipeTransform {
   transform(text: string, filter: string) {
     if (text && filter) {
-      text = `${text}`.replace(
+      text = text.replace(
         new RegExp(`(${this.escapeRegExp(filter)})`, 'gi'),
         '<span class="highlighted">$1</span>'
       );

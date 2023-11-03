@@ -6,8 +6,8 @@ import { Component } from '@angular/core';
 })
 export class DateComponent {
   date = new Date();
-  day = this.date.getDate();
   today = this.date.getDay();
+  day = this.date.getDate();
   month = this.date.getMonth();
   year = this.date.getFullYear();
 }

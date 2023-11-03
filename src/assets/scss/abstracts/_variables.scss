@@ -9,12 +9,10 @@ $monochrome-100: #ffffff !default;
 $monochrome-200: #f0efe9 !default;
 $monochrome-300: #d8d8d8 !default;
 $monochrome-400: #7e7e7e !default;
-$monochrome-500: #262626 !default;
-$monochrome-600: #595959 !default;
+$monochrome-500: #595959 !default;
 
 $primary-100: #50e4a5 !default;
 $primary-200: #01b0ac !default;
-$primary-300: #008a00 !default;
 $primary-400: #278edd !default;
 $primary-500: #eb6100 !default;
 $primary-600: #f34545 !default;
@@ -24,11 +22,9 @@ $color-map: (
   monochrome-200: $monochrome-200,
   monochrome-300: $monochrome-300,
   monochrome-400: $monochrome-400,
-  monochrome-500: $monochrome-500,
-  monochrome-600: $monochrome-600,
+  monochrome-600: $monochrome-500,
   primary-100: $primary-100,
   primary-200: $primary-200,
-  primary-300: $primary-300,
   primary-400: $primary-400,
   primary-500: $primary-500,
   primary-600: $primary-600
@@ -39,7 +35,5 @@ $grid-breakpoints: (
   xs: 0,
   sm: 400px,
   md: 768px,
-  lg: 1025px,
-  xl: 1280px,
-  xxl: 1440px
+  lg: 1025px
 ) !default;

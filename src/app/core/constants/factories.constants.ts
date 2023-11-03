@@ -1,12 +1,15 @@
-import { inject } from '@angular/core';
+import { TranslationService } from 'src/app/core/services/translate.service';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModuleConfig } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { DirectionService } from '../services/direction.service';
 
-export const InitDirectionFactory = () => {
-  const directionService = inject(DirectionService);
-  return () => directionService.initDirection();
+export const InitTranslationFactory = (TranslationService: TranslationService) => {
+  return () => TranslationService.init();
+};
+
+export const InitDirectionFactory = (directionService: DirectionService) => {
+  return () => directionService.startDirectionListener();
 };
 
 const HttpLoaderFactory = (http: HttpClient) => {

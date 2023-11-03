@@ -10,16 +10,17 @@ export class DirectionService {
     private translate: TranslateService
   ) {}
 
-  initDirection() {
+  startDirectionListener() {
     this.translate.onLangChange.subscribe(({ lang }) => {
-      this.directionChanged(LANGS_DIRECTION[lang as keyof typeof LANGS_DIRECTION]);
+      const dir  = LANGS_DIRECTION[lang as keyof typeof LANGS_DIRECTION];
+      this.directionChanged(dir);
+      this.changeCssFile(dir);
     });
   }
 
   private directionChanged(dir: string): void {
     const htmlTag = this.document.getElementsByTagName('html')[0] as HTMLHtmlElement;
-    htmlTag.dir = dir === 'rtl' ? 'rtl' : 'ltr';
-    this.changeCssFile(dir);
+    htmlTag.dir = dir;
   }
 
   private changeCssFile(dir: string): void {
