@@ -6,7 +6,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateModuleConfig } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+const HttpLoaderFactoryChild = (http: HttpClient) => {
+  return new TranslateHttpLoader(http, './assets/i18n/todos/', '.json');
+};
+
+export const TRANSLATE_CONFIG_CHILD: TranslateModuleConfig = {
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactoryChild,
+    deps: [HttpClient]
+  },
+  isolate: true
+};
 
 const routes: Routes = [
   {
@@ -17,6 +32,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [TodosComponent, TodoItemComponent],
-  imports: [CommonModule, RouterModule.forChild(routes), SharedModule, CoreModule, FormsModule, TranslateModule]
+  imports: [
+    CommonModule,
+    RouterModule.forChild(routes),
+    SharedModule,
+    CoreModule,
+    FormsModule,
+    TranslateModule.forChild(TRANSLATE_CONFIG_CHILD)
+  ]
 })
 export class TodosModule {}
